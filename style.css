@@ -56,7 +56,7 @@
 	--white-200: #dadada;
 	--grey-900: #9b9b9b;
 }
-.CodeMirror-focused .CodeMirror-selected {
+.CodeMirror-focused .CodeMirror-selected, .CodeMirror-selected {
     background: rgba(0, 255, 221, .25);
 }
 .cm-s-default .cm-builtin {
