@@ -1,0 +1,502 @@
+@-moz-document regexp("chrome-extension://.*"), regexp("moz-extension://.*") {
+		::-webkit-scrollbar-track {
+             -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.3);
+             border-radius: 0px;
+             background-color: #212121;
+        }
+        html[hide-scrollbar="true"] ::-webkit-scrollbar{display:none}
+        ::-webkit-scrollbar {
+             width: 10px;
+             background-color: #212121;
+        }
+        ::-webkit-scrollbar-thumb {
+             border-radius: 0px;
+             background-color: #808080;
+			 transition: all .18s ease-in-out;
+        }
+		::-webkit-scrollbar-thumb:hover {
+			 background-color: rgba(0, 255, 201, .5);
+		}
+		:-webkit-scrollbar-corner {
+			 background: #212121;
+			 border-color: #212121;
+		}
+
+:root {
+	--bg-body: #1b1b1b;
+	--bg-header: #202020;
+	--bg-button: var(--bg-body);
+	--bg-button-image: linear-gradient(90deg, #1f1f1f, #1b1b1b);
+	--bg-button-hover: linear-gradient(90deg, #222, #252525);
+	--bg-checkbox: rgba(255, 255, 255, 0.1);
+	--bg-checkbox-hover: #444;
+	--bg-input: #252525;
+	--bg-select: var(--bg-input);
+	--bg-popup: rgba(27, 27, 27, .3);
+	--bg-gutters: #222;
+	--bg-CodeMirror: var(--bg-body);
+	--bg-activeline: rgba(0, 180, 255, .15);
+	--bg-CodeMirror-hints: var(--bg-popup);
+	--bg-menu-items: var(--bg-popup);
+	--bg-search-result-hover: var(--bg-body);
+	--bg-search-result: #2b2b2b;
+	--bg-message-box: var(--bg-popup);
+	--bg-options: var(--bg-popup);
+	--border-search-result: rgba(255, 255, 255, .12);
+	--border-search-result-hover: rgba(255, 255, 255, .25);
+	--border-menu-items: rgba(255, 255, 255, .5);
+	--border-CoderMirror-hints: var(--border-CodeMirror);
+	--border-CodeMirror: #3a3a3a;
+	--border-gutters: #373737;
+	--border-select: var(--border-input);
+	--border-input: #454545;
+	--border-checkbox-hover: #828282;
+	--border-button: #333;
+	--border-button-hover: #353535;
+	--white-200: #dadada;
+	--grey-900: #9b9b9b;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: rgba(0, 255, 221, .25);
+}
+.cm-s-default .cm-builtin {
+	color: #9d26ff;
+}
+.cm-s-default .cm-atom {
+	color: #9687ff;
+}
+.cm-s-default .cm-qualifier, .cm-s-default .cm-meta {
+	color: #aaa;
+}
+.cm-s-default .cm-variable-2 {
+	color: #0080ff;
+}
+.cm-s-default .cm-def, .cm-s-default .cm-attribute {
+	color: #00d5ff;
+}
+.cm-s-default .cm-keyword {
+	color: #df00ff;
+}
+.cm-s-default .cm-number {
+	color: #20b77b;
+}
+.cm-s-default .cm-tag {
+	color: #1bbd00;
+}
+.cm-s-default .cm-variable-3, .cm-s-default .cm-type {
+	color: #00b974;
+}
+
+
+body {
+	background-color: var(--bg-body);
+	color: var(--white-200);
+}
+#header {
+	background-color: var(--bg-header);
+	border: none;
+}
+button, #popup-options button {
+	background-color: var(--bg-button);
+	background-image: var(--bg-button-image);
+	border-radius: 10px;
+	padding: 9px;
+	transition: all .18s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+	border-color: var(--border-button);
+	color: var(--white-200);
+}
+button:hover, button:not(:disabled):hover, #popup-options button:hover {
+	background-color: var(--bg-button);
+	background-image: var(--bg-button-hover);
+	border-color: var(--border-button-hover);
+}
+.svg-icon:hover, .svg-icon.info, .svg-icon.settings {
+	fill: #999;
+}
+.svg-icon, .svg-icon.info:hover, .svg-icon.settings:hover {
+	fill: var(--white-200);
+}
+input[type="checkbox"]:not(.slider):hover {
+	background-color: var(--bg-checkbox-hover);
+	border-color: var(--border-checkbox-hover);
+}
+input[type="checkbox"]:not(.slider) {
+	background-color: var(--bg-checkbox);
+	border-radius: 3px;
+	border: 2px solid #737373;
+	height: 16px;
+	width: 16px;
+	left: -2px;
+	top: -2px;
+}
+.svg-icon.checked {
+	fill: var(--white-200);
+}
+input:not([type]), input[type="search"], #options [type="number"], .config-body input[type="text"] {
+	background-color: var(--bg-input);
+	color: var(--white-200);
+	border-radius: 7px;
+	padding: 5px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 13px;
+	border-color: var(--border-input);
+}
+#basic-info-enabled {
+	top: 8px;
+	left: 3px;
+	position: relative;
+}
+select, option {
+	background-color: var(--bg-select);
+	border-color: var(--border-select);
+	color: var(--white-200);
+	height: 25px;
+	font-size: 13px;
+	border-radius: 7px;
+}
+.svg-icon.select-arrow {
+	fill: var(--white-200);
+	top: 5px;
+}
+#help-popup {
+	background-color: var(--bg-popup);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 7px;
+}
+#help-popup .title {
+	background-color: rgba(255, 255, 255, .05);
+}
+.keymap-list tr:nth-child(odd) {
+	background-color: rgba(255, 255, 255, .07);
+}
+#toc li {
+	transition: all .18s ease-in-out;
+}
+#toc li:hover {
+	border-radius: 3px;
+	padding-left: 2px;
+}
+.CodeMirror-gutters {
+	background-color: var(--bg-gutters);
+	border-color: var(--border-gutters);
+}
+.CodeMirror {
+	background-color: var(--bg-CodeMirror);
+	border-color: var(--border-CodeMirror);
+	color: var(--white-200);
+	border-radius: 7px;
+}
+.CodeMirror-activeline-background {
+	background-color: var(--bg-activeline);
+	transition: all .18s ease-in-out;
+}
+.colorview-swatch::before {
+	border-color: #7e7e7e;
+}
+.CodeMirror-cursor {
+	border-color: var(--white-200);
+}
+a[id="find-styles-link"], a[class="write-style-link"] {
+	color: var(--white-200);
+}
+#installed {
+	border-color: rgba(255, 255, 255, .25);
+}
+.entry:nth-child(even) {
+	background-color: rgba(255, 255, 255, .05);
+}
+.entry:nth-child(-n+10):before, .entry:nth-child(11):before {
+	color: #777;
+}
+#installed .style-name .checker {
+	left: 6px;
+}
+#installed .style-name .svg-icon.checked {
+	left: 8px;
+	top: 9px;
+}
+#installed .style-name .checker, #installed .style-name .svg-icon.checked:hover {
+	background-color: var(--bg-checkbox-hover);
+	border-color: var(--border-checkbox-hover);
+}
+#basic-info-enabled input {
+	left: -2px;
+}
+#basic-info-enabled svg {
+	top: -2px;
+	left: 2px;
+}
+body[id="stylus-popup"] {
+	border-radius: 7px;
+	padding: 7px;
+}
+ul[class="CodeMirror-hints default"] {
+	background-color: var(--bg-CodeMirror-hints);
+	border-color: var(--border-CoderMirror-hints);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 7px;
+	padding: 2px;
+}
+ul[class="CodeMirror-hints default"] li {
+	color: var(--white-200);
+}
+#installed .actions a svg {
+	fill: var(--grey-900);
+}
+#installed .actions a:hover svg {
+	fill: var(--white-200);
+}
+.menu-items-wrapper {
+	background-color: var(--bg-menu-items);
+	border-color: var(--border-menu-items);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 7px;
+}
+.entry .menu-item:hover, .entry .menu-item:active {
+	background-color: rgba(255, 255, 255, .1);
+}
+input#disableAll:hover {
+	background-color: rgba(255, 0, 0, .38);
+}
+.unreachable .blocked-info {
+	border-color: rgba(255, 255, 255, .25);
+}
+#write-for-frames {
+	color: var(--grey-900);
+}
+#write-for-frames:hover {
+	color: var(--white-200);
+}
+.entry .menu {
+	background-color: rgba(255, 255, 255, .4);
+}
+.add-applies-to .svg-icon, .remove-applies-to .svg-icon {
+	fill: #6b6b6b;
+}
+.add-applies-to:hover .svg-icon, .remove-applies-to:hover .svg-icon {
+	fill: var(--white-200);
+}
+.search-result {
+	background-color: var(--bg-search-result);
+	border-color: var(--border-search-result);
+	transition: all .2s ease-in-out;
+}
+.search-result:hover {
+	background-color: var(--bg-search-result-hover);
+	border-color: var(--border-search-result-hover);
+	transform: translateY(-5px);
+}
+.search-result-title {
+	color: #ababab;
+}
+.search-result:hover .search-result-title {
+	color: var(--white-200);
+}
+.search-result-meta {
+	background-color: rgba(63, 63, 63, .75);
+}
+.search-result:hover .search-result-meta {
+	background-color: rgba(27, 27, 27, .75);
+}
+#search-results:not([data-empty]):before {
+	background-image: linear-gradient(transparent, rgba(255, 255, 255, .1) 200px);
+}
+.section-editor .section:not(:first-child) {
+	border-top: 2px dashed #4b4b4b;
+}
+.filter-selection select {
+	background-color: transparent;
+}
+.filter-selection .select-arrow {
+	top: 0px;
+}
+#filters label:hover, #filters .filter-selection:hover {
+	background-color: rgba(112, 112, 112, .2);
+}
+#searchMode {
+	border-radius: 0 7px 7px 0;
+}
+#search {
+	background-color: var(--bg-input);
+	border-color: var(--border-input);
+	color: var(--white-200);
+	border-radius: 7px 0 0 7px;
+	height: 25px;
+}
+#manage\.newUI\.sort {
+	background-color: var(--bg-input);
+	border-color: var(--border-input);
+	color: var(--white-200);
+	height: 25px;
+}
+#sort-wrapper .select-arrow {
+	top: 6px;
+}
+#header summary:hover h2 {
+	border-color: #4b4b4b;
+}
+.style-name a, .style-edit-link {
+	color: var(--white-200);
+}
+.newUI .entry input[type="checkbox"]:not(.slider) {
+	left: 0px !important;
+}
+.newUI .entry .svg-icon.checked, .newUI .entry:hover .svg-icon.checked {
+	fill: var(--white-200);
+	top: 0px !important;
+	left: 2px !important;
+}
+.style-info[data-type=version] {
+	color: #ababab;
+}
+.oldUI .disabled h2::after, .entry.usercss .style-name-link::after {
+	background-color: hsla(180, 66%, 66%, .40);
+	color: var(--white-200);
+}
+.entry {
+	border-color: #4b4b4b;
+}
+.newUI .entry.odd {
+	background-color: rgba(112, 112, 112, .05);
+}
+.newUI .entry .style-name:hover::before {
+	background: linear-gradient(to right, hsla(180, 50%, 46%, .2), hsla(180, 23%, 46%, .05) 50%, transparent);
+}
+.newUI .entry.enabled .style-name:hover .style-name-link {
+	color: rgb(0, 187, 187);
+}
+.disabled h2 .style-name-link, .disabled .applies-to, .newUI .disabled.entry .svg-icon {
+	color: #7b7b7b;
+	fill: #5f5f5f;
+}
+#message-box-title {
+	background-color: rgba(108, 202, 187, .3);
+	border-radius: 7px 7px 0 0;
+}
+#message-box > div {
+	background-color: var(--bg-message-box);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 7px;
+}
+.config-body label:not(:first-child) {
+	border-color: rgba(255, 255, 255, .25);
+}
+#message-box-buttons {
+	background-color: rgba(29, 29, 29, .3);
+	border-radius: 0 0 7px 7px;
+}
+#manage-text span a, .disabled a:hover {
+	color: var(--white-200);
+}
+#manage-text span a:hover {
+	color: var(--grey-900);
+}
+.newUI .entry:hover .svg-icon, .newUI .entry .svg-icon, #options-close-icon .svg-icon {
+	fill: var(--grey-900);
+}
+.newUI .entry:hover .svg-icon:hover, #options-close-icon:hover .svg-icon {
+	fill: var(--white-200);
+}
+.CodeMirror-guttermarker-subtle {
+	color: #6b6b6b;
+}
+.beautify-options select {
+	background: linear-gradient( 90deg, rgba(255, 255, 255, .05) 18px, rgba(255, 255, 255, .02) 24px);
+}
+.beautify-options > label {
+	left: 3px;
+	max-width: 150px;
+}
+body[id="stylus-options"] {
+	background: transparent;
+	border-color: rgba(255, 255, 255, .25);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 8px;
+}
+#options-title {
+	border-color: rgba(255, 255, 255, .25);
+	background-color: rgba(108, 202, 187, .3);
+	border-radius: 6px 6px 0 0;
+}
+div#options {
+	background-color: var(--bg-options);
+}
+.items div a {
+	color: var(--white-200);
+}
+.items div a:hover {
+	color: var(--grey-900);
+}
+.block {
+	border-color: rgba(255, 255, 255, .25);
+}
+div#actions {
+	border-color: rgba(255, 255, 255, .25);
+	background-color: rgba(255, 255, 255, .05);
+}
+input[type="radio"] {
+    background: #2d2d2d;
+    border-color: #6b6b6b;
+}
+input[type="radio"]:checked:after {
+    background-color: #bdbdbd;
+}
+.onoffswitch input:checked + span, .onoffswitch input:checked + span::before {
+    border-color: rgba(0, 255, 193, .3);
+}
+.onoffswitch input:checked + span {
+    background-color: rgba(0, 255, 193, .25);
+}
+.onoffswitch span {
+	border-color: rgba(45, 45, 45, .3);
+    background-color: rgba(45, 45, 45, .25);
+}
+.onoffswitch span::before {
+	background-color: #353535;
+}
+input[type="color"] {
+	background-color: var(--bg-input);
+	border-color: rgba(255, 255, 255, .12);
+	border-radius: 4px;
+}
+.items label span a {
+	color: var(--white-200);
+}
+.items label span a svg {
+	fill: #6b6b6b;
+}
+.svg-inline-wrapper:hover .svg-icon {
+	fill: var(--white-200);
+}
+#message-box-buttons button:not(:disabled):hover {
+    background-color: var(--bg-button-hover);
+    border-color: var(--border-button-hover);
+}
+#search-results .lds-spinner {
+	filter: invert(1);
+}
+
+.colorpicker-theme-light {
+	--main-background-color: var(--bg-body);
+	--main-border-color: #3b3b3b;
+	--label-color: var(--grey-900);
+	--label-color-hover: var(--white-200);
+	--input-background-color: var(--bg-body);
+	--input-background-color-hover: #2f2f2f;
+	--input-background-color-focus: var(--bg-body);
+	--input-color: #bbb;
+	--input-color-focus: #fff;
+	--input-border-color: #4a4a4a;
+	--input-border-color-focus: #888;
+	--input-border-color-hover: #bbb;
+	--invalid-border-color: hsl(0, 100%, 50%);
+	--invalid-background-color: hsla(0, 100%, 50%, 0.15);
+	--invalid-color: hsl(0, 100%, 40%);
+}
+}
