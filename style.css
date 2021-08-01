@@ -42,6 +42,10 @@
 	--bg-search-result: #2b2b2b;
 	--bg-message-box: var(--bg-popup);
 	--bg-options: var(--bg-popup);
+	--bg-hotkey-info: var(--bg-popup);
+	--bg-hotkey: linear-gradient(#5b5b5b, #1b1b1b);
+	--border-hotkey: #1b1b1b;
+	--border-hotkey-info: rgba(255, 255, 255, .12);
 	--border-search-result: rgba(255, 255, 255, .12);
 	--border-search-result-hover: rgba(255, 255, 255, .25);
 	--border-menu-items: rgba(255, 255, 255, .5);
@@ -479,7 +483,34 @@ input[type="color"] {
     border-color: var(--border-button-hover);
 }
 #search-results .lds-spinner {
-	filter: invert(1);
+	filter: invert(0);
+}
+#hotkey-info div {
+	background-color: var(--bg-hotkey-info);
+	border-color: var(--border-hotkey-info);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	border-radius: 6px;
+}
+#hotkey-info mark {
+	background: var(--bg-hotkey);
+	border-color: var(--border-hotkey);
+}
+mark {
+	color: var(--white-200);
+}
+#hotkey-info[data-active] {
+	border-color: var(--border-hotkey);
+	border-radius: 7px;
+}
+#hotkey-info div a {
+	color: var(--white-200);
+}
+#hotkey-info div a:hover {
+	color: var(--grey-900);
+}
+#hotkey-info div:nth-of-type(2) {
+	border-radius: 0 0 6px 6px;
 }
 
 .colorpicker-theme-light {
