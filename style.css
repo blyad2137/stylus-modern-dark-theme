@@ -44,6 +44,8 @@
 	--bg-options: var(--bg-popup);
 	--bg-hotkey-info: var(--bg-popup);
 	--bg-hotkey: linear-gradient(#5b5b5b, #1b1b1b);
+	--bg-confirmation: var(--bg-popup);
+	--border-confirmation: rgba(255, 255, 255, .05);
 	--border-hotkey: #1b1b1b;
 	--border-hotkey-info: rgba(255, 255, 255, .12);
 	--border-search-result: rgba(255, 255, 255, .12);
@@ -368,7 +370,7 @@ input#disableAll:hover {
 	background-color: rgba(112, 112, 112, .05);
 }
 .newUI .entry .style-name:hover::before {
-	background: linear-gradient(to right, hsla(180, 50%, 46%, .2), hsla(180, 23%, 46%, .05) 50%, transparent);
+	background: none;
 }
 .newUI .entry.enabled .style-name:hover .style-name-link {
 	color: rgb(0, 187, 187);
@@ -503,14 +505,26 @@ mark {
 	border-color: var(--border-hotkey);
 	border-radius: 7px;
 }
-#hotkey-info div a {
+#hotkey-info div a, .newUI .applies-to .expander {
 	color: var(--white-200);
 }
-#hotkey-info div a:hover {
+#hotkey-info div a:hover, .newUI .applies-to .expander:hover {
 	color: var(--grey-900);
 }
 #hotkey-info div:nth-of-type(2) {
 	border-radius: 0 0 6px 6px;
+}
+.newUI .entry {
+	transition: all .18s ease-in-out;
+}
+.newUI .entry:hover {
+	background: linear-gradient(to right, hsla(180, 50%, 46%, .2), hsla(180, 23%, 46%, .05) 50%, transparent);
+}
+#confirm > div {
+	background-color: var(--bg-confirmation);
+	border-color: var(--border-confirmation);
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
 }
 
 .colorpicker-theme-light {
