@@ -45,6 +45,8 @@
 	--bg-hotkey-info: var(--bg-popup);
 	--bg-hotkey: linear-gradient(#5b5b5b, #1b1b1b);
 	--bg-confirmation: var(--bg-popup);
+	--bg-warning: #261f1f;
+	--border-warning: #666;
 	--border-confirmation: rgba(255, 255, 255, .05);
 	--border-hotkey: #1b1b1b;
 	--border-hotkey-info: rgba(255, 255, 255, .12);
@@ -525,6 +527,16 @@ mark {
 	border-color: var(--border-confirmation);
 	backdrop-filter: blur(1rem);
 	-webkit-backdrop-filter: blur(1rem);
+}
+.warnings {
+	background-color: var(--bg-warning);
+	border-color: var(--border-warning);
+}
+.external-link div ul li a {
+	color: #fff;
+}
+.external-link div ul li a:hover {
+	color: #999;
 }
 
 .colorpicker-theme-light {
