@@ -1,3 +1,14 @@
+/* ==UserStyle==
+@name           Stylus Modern Dark Theme
+@namespace      github.com/blyad2137/stylus-modern-dark-theme
+@version        1.0.5
+@description    As in title.
+@author         blyad (https://github.com/blyad2137)
+@homepageURL    https://github.com/blyad2137/stylus-modern-dark-theme
+@supportURL     https://github.com/blyad2137/stylus-modern-dark-theme/issues
+@updateURL      https://userstyles.world/api/style/498.user.css
+==/UserStyle== */
+
 @-moz-document regexp("chrome-extension://.*"), regexp("moz-extension://.*") {
 		::-webkit-scrollbar-track {
              -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.3);
@@ -61,6 +72,7 @@
 	--border-checkbox-hover: #828282;
 	--border-button: #333;
 	--border-button-hover: #353535;
+	--border-value: #686868;
 	--white-200: #dadada;
 	--grey-900: #9b9b9b;
 }
@@ -398,7 +410,7 @@ input#disableAll:hover {
 	background-color: rgba(29, 29, 29, .3);
 	border-radius: 0 0 7px 7px;
 }
-#manage-text span a, .disabled a:hover {
+#manage-text span a, .disabled a:hover, .config-reset-icon {
 	color: var(--white-200);
 }
 #manage-text span a:hover {
@@ -507,10 +519,10 @@ mark {
 	border-color: var(--border-hotkey);
 	border-radius: 7px;
 }
-#hotkey-info div a, .newUI .applies-to .expander {
+#hotkey-info div a, .newUI .applies-to .expander, [class=".external-support"] {
 	color: var(--white-200);
 }
-#hotkey-info div a:hover, .newUI .applies-to .expander:hover {
+#hotkey-info div a:hover, .newUI .applies-to .expander:hover, [class=".external-support"]:hover {
 	color: var(--grey-900);
 }
 #hotkey-info div:nth-of-type(2) {
@@ -532,12 +544,30 @@ mark {
 	background-color: var(--bg-warning);
 	border-color: var(--border-warning);
 }
-.external-link div ul li a, a[id="usw-url"] {
+.external-link div ul li a, a[id="usw-url"], span.meta-author a, [class=".external-support"] {
 	color: #fff;
 }
-.external-link div ul li a:hover, a[id="usw-url"]:hover {
+.external-link div ul li a:hover, a[id="usw-url"]:hover, [class=".external-support"]:hover, span.meta-author a:hover {
 	color: #999;
 }
+[data-error]::after {
+	color: hsl(0, 100%, 43%);
+}
+[data-error] .search-result-meta {
+    background: #6f2f2fcc;
+}
+[data-error], [data-error]:hover {
+    border-color: red;
+    background: #6f2f2fcc;
+}
+#search-replace-dialog[data-type="replace"] button:hover svg, #search-replace-dialog svg:hover {
+	fill: var(--white-200);
+}
+.config-reset-icon .svg-icon {
+	fill: #6b6b6b;
+}
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #6354e16b; }
+.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #6354e16b; }
 
 .colorpicker-theme-light {
 	--main-background-color: var(--bg-body);
