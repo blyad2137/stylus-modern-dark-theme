@@ -1,5 +1,5 @@
 # stylus-modern-dark-theme
-<p>Requires <a href="https://en.wikipedia.org/wiki/Stylus_(stylesheet_language)">Stylus</a></p>
+<p>Requires <a href="https://add0n.com/stylus.html">Stylus</a></p>
 <ul>🌐 Download:
             <li><a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/">Mozilla version</a></li>
             <li><a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne">Chrome version</a></li>
