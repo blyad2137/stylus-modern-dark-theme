@@ -1,9 +1,10 @@
 /* ==UserStyle==
 @name           Stylus Modern Dark Theme
 @namespace      github.com/blyad2137/stylus-modern-dark-theme
-@version        1.0.5
+@version        1.1.0
 @description    As in title.
 @author         blyad (https://github.com/blyad2137)
+@license        CC BY-NC-SA 4.0
 @homepageURL    https://github.com/blyad2137/stylus-modern-dark-theme
 @supportURL     https://github.com/blyad2137/stylus-modern-dark-theme/issues
 @updateURL      https://userstyles.world/api/style/498.user.css
@@ -568,6 +569,12 @@ mark {
 }
 .CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #6354e16b; }
 .CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #6354e16b; }
+#help-popup .contents a {
+	color: var(--white-200);
+}
+#help-popup .contents a:hover {
+	color: var(--grey-900);
+}
 
 .colorpicker-theme-light {
 	--main-background-color: var(--bg-body);
