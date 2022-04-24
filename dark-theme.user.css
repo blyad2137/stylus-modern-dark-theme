@@ -580,6 +580,10 @@
 		top: 5px;
 		position: relative;
 	}
+	.newUI .updater-icons > :not(.check-update):after {
+		background-color: #6a6111;
+		border-color: #948c53;
+	}
 
 	.colorpicker-theme-light {
 		--main-background-color: var(--bg-body);
